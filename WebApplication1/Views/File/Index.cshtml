@@ -57,7 +57,8 @@
                     $link.each(function (x, el) {
                         var beforeName = $(el).attr('name');
                         var chartIndex = beforeName.indexOf('[') + 1;
-                        var newName = beforeName.substr(0, chartIndex) + i + beforeName.substr(chartIndex + 1, beforeName.length - chartIndex);
+                        var newName = beforeName.substr(0, chartIndex) +
+                            i + beforeName.substr(chartIndex + 1, beforeName.length - chartIndex);
                         $(el).attr('name', newName);
                     });
                 })

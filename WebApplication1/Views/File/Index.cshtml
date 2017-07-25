@@ -15,11 +15,12 @@
     {
         <input type="hidden" name="ActionType" value="" />
         <input type="hidden" name="ActionName" value="" />
+        <input type="hidden" id="hasPreviewFlag" value="" />
         <!--紀錄是要上傳照片還是資料存檔-->
         <input type="hidden" value="" name="act" />
 
             <!--選擇檔案後，表單自動提交-->
-        <input type="file" value="選擇大頭照" id="images" name="images" multiple />
+        <input type="file" value="選擇大頭照" id="images" onchange="createFlag();" name="images" multiple />
         <input type="button" id="uploadBtn" name="" value="上傳" />
         <table border="1">
 
@@ -41,10 +42,22 @@
         </table>
 
         <hr /><!--我是分隔線-->
-        <input type="submit" value="提交" onclick="postForm();" />
+        <input type="submit" value="提交" id="saveDbBtn" onclick="" />
     }
     <script type="text/javascript">
         $(function () {
+            //提交表單
+            $('#saveDbBtn').click(function () {
+                if ($('#hasPreviewFlag').val()) {
+                    alert('請先將圖片上傳');
+                    return false;
+                }
+                $("input[name='act']").attr("value", "post");
+                $("input[name='ActionType']").attr("value", "R");
+                $("input[name='ActionName']").attr("value", "School");
+                $("input[name='act']").attr("value", "post");
+            });
+
             //上傳
             $('#uploadBtn').click(function () {
                 uploadPhoto();
@@ -67,10 +80,10 @@
         })
         //上傳照片
         function uploadPhoto() {
+            $('#hasPreviewFlag').val(false);
             //alert($("#images").files.length);
             var totalFiles = document.getElementById("images").files.length;
-            if (totalFiles == 0)
-            {
+            if (totalFiles == 0) {
                 alert('請選擇檔案!');
                 return;
             }
@@ -81,12 +94,22 @@
         }
 
         //提交表單
-        function postForm() {
-            //更改flag
-            $("input[name='act']").attr("value", "post");
-            $("input[name='ActionType']").attr("value", "R");
-            $("input[name='ActionName']").attr("value", "School");
-            $("input[name='act']").attr("value", "post");
+        //function postForm() {
+        //    if ($('#hasPreviewFlag').val())
+        //    {
+        //        alert('請先將圖片上傳');
+        //        return;
+        //    }
+
+        //    //更改flag
+        //    $("input[name='act']").attr("value", "post");
+        //    $("input[name='ActionType']").attr("value", "R");
+        //    $("input[name='ActionName']").attr("value", "School");
+        //    $("input[name='act']").attr("value", "post");
+        //}
+
+        function createFlag() {
+            $('#hasPreviewFlag').val(true);
         }
     </script>
 </body>

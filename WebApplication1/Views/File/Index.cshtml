@@ -3,17 +3,12 @@
 
 @{
     ViewBag.Title = "Index";
-    string actionType = "R";
-    string actionName = "SchoolEdit";
-
 }
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <!--加入一些自己手寫的簡單jQuery語法-->
-
 </head>
 <body>
     @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data", name = "myForm" }))
@@ -24,13 +19,14 @@
         <input type="hidden" value="" name="act" />
 
             <!--選擇檔案後，表單自動提交-->
-        <input type="file" value="選擇大頭照" name="images" onchange="uploadPhoto();" multiple />
+        <input type="file" value="選擇大頭照" id="images" name="images" multiple />
+        <input type="button" id="uploadBtn" name="" value="上傳" />
         <table border="1">
 
             @foreach (var img in Model.MemberData)
             {
                 int index = Model.MemberData.IndexOf(img);
-                <tr class="imgitem" test="test">
+                <tr class="imgitem">
                     <td>
                         <!--預覽圖-->
                         <img src="@img.FileUrl" width="100" />
@@ -38,7 +34,7 @@
                         <input type="hidden" id="imgID" name="MemberData[@index].ID" value="@img.ID" />
                         <input type="hidden" id="imgName" name="MemberData[@index].FileName" value="@img.FileName" />
                         <input type="hidden" id="imgUrl" name="MemberData[@index].FileUrl" value="@img.FileUrl" />
-                        <input type="button" class="close"name="removeBtn"  value="移除" />
+                        <input type="button" class="close" name="removeBtn" value="移除" />
                     </td>
                 </tr>
             }
@@ -49,9 +45,14 @@
     }
     <script type="text/javascript">
         $(function () {
+            //上傳
+            $('#uploadBtn').click(function () {
+                uploadPhoto();
+            });
+
             $('.close').on('click', function () {
                 $(this).closest('tr').remove();
-
+                //rename attribute
                 $(".imgitem").each(function (i, elem) {
                     var $link = $(elem).find("input");
                     $link.each(function (x, el) {
@@ -61,18 +62,21 @@
                             i + beforeName.substr(chartIndex + 1, beforeName.length - chartIndex);
                         $(el).attr('name', newName);
                     });
-                })
-
-
-
+                });
             });
         })
         //上傳照片
         function uploadPhoto() {
+            //alert($("#images").files.length);
+            var totalFiles = document.getElementById("images").files.length;
+            if (totalFiles == 0)
+            {
+                alert('請選擇檔案!');
+                return;
+            }
             $("input[name='act']").attr("value", "upload");
             $("input[name='ActionType']").attr("value", "R");
             $("input[name='ActionName']").attr("value", "School");
-            //表單提交
             $("form[name='myForm']").submit();
         }
 
@@ -80,9 +84,9 @@
         function postForm() {
             //更改flag
             $("input[name='act']").attr("value", "post");
-        }
-        String.prototype.replaceAt = function (index, replacement) {
-            return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+            $("input[name='ActionType']").attr("value", "R");
+            $("input[name='ActionName']").attr("value", "School");
+            $("input[name='act']").attr("value", "post");
         }
     </script>
 </body>

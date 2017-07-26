@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUploadMVC5", "WebApplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormSample", "..\WinForm\WinFormSample\WinFormSample.csproj", "{0C00051A-B210-4878-8B30-5059A9FCB725}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agular2", "Agular2\Agular2.csproj", "{72A13674-E20F-45EC-B079-22BA669F180B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlog", "Nlog\Nlog.csproj", "{974B2EE0-D0AC-416A-8CDD-0176351240C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0C00051A-B210-4878-8B30-5059A9FCB725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C00051A-B210-4878-8B30-5059A9FCB725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C00051A-B210-4878-8B30-5059A9FCB725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A13674-E20F-45EC-B079-22BA669F180B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A13674-E20F-45EC-B079-22BA669F180B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A13674-E20F-45EC-B079-22BA669F180B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A13674-E20F-45EC-B079-22BA669F180B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974B2EE0-D0AC-416A-8CDD-0176351240C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974B2EE0-D0AC-416A-8CDD-0176351240C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974B2EE0-D0AC-416A-8CDD-0176351240C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974B2EE0-D0AC-416A-8CDD-0176351240C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

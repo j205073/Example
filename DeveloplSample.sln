@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUpload", "WebApplication1\FileUpload.csproj", "{70BD7F3A-02C2-477A-BB64-1F42B6D2520A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUploadMVC5", "WebApplication1\FileUploadMVC5.csproj", "{70BD7F3A-02C2-477A-BB64-1F42B6D2520A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormSample", "..\WinForm\WinFormSample\WinFormSample.csproj", "{0C00051A-B210-4878-8B30-5059A9FCB725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{70BD7F3A-02C2-477A-BB64-1F42B6D2520A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70BD7F3A-02C2-477A-BB64-1F42B6D2520A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70BD7F3A-02C2-477A-BB64-1F42B6D2520A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C00051A-B210-4878-8B30-5059A9FCB725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C00051A-B210-4878-8B30-5059A9FCB725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C00051A-B210-4878-8B30-5059A9FCB725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C00051A-B210-4878-8B30-5059A9FCB725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

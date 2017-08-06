@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4", "Log4\Log4.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService1", "WindowsService1\WindowsService1.csproj", "{36BE3A5E-27C5-4E82-B2E9-C220FACDEB25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingStudyOpinionFeedback", "TrainingStudyFeedback\TrainingStudyOpinionFeedback.csproj", "{19D1D2B7-FB83-4073-A080-03F71E7777AD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChsChtTranslate", "ChsChtTranslate\ChsChtTranslate.csproj", "{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{36BE3A5E-27C5-4E82-B2E9-C220FACDEB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36BE3A5E-27C5-4E82-B2E9-C220FACDEB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36BE3A5E-27C5-4E82-B2E9-C220FACDEB25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19D1D2B7-FB83-4073-A080-03F71E7777AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19D1D2B7-FB83-4073-A080-03F71E7777AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19D1D2B7-FB83-4073-A080-03F71E7777AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19D1D2B7-FB83-4073-A080-03F71E7777AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Release|Any CPU.ActiveCfg = Release|Any CPU

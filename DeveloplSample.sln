@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4", "Log4\Log4.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChsChtTranslate", "ChsChtTranslate\ChsChtTranslate.csproj", "{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection", "Reflection\Reflection.csproj", "{25ABF9E2-E0BD-4E54-8D53-B056887490CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D9F68A-B985-42C7-8FA1-92F55D89AE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25ABF9E2-E0BD-4E54-8D53-B056887490CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25ABF9E2-E0BD-4E54-8D53-B056887490CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25ABF9E2-E0BD-4E54-8D53-B056887490CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25ABF9E2-E0BD-4E54-8D53-B056887490CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

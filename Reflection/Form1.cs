@@ -31,11 +31,10 @@ namespace Reflection
 
             foreach (var propInfo in propInfos)
             {
-                var pName = propInfo.Name;
+                var pType = propInfo.PropertyType;
+                bool chkType = pType == typeof(Int32);
+                string pName = propInfo.Name;
                 var pValue = propInfo.GetValue(objVo, null);
-
-
-
 
                 bool readable = propInfo.CanRead;
                 bool writable = propInfo.CanWrite;

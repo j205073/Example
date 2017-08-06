@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Demo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Content/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="Content/style.css"> <!-- Resource style -->
+    <script src="Scripts/modernizr.js"></script> <!-- Modernizr -->
+    <style>
+        .cd-dropdown-content .cd-secondary-dropdown {
+            width: 70%;
+        }
+
+            .cd-dropdown-content .cd-dropdown-icons > li, .cd-dropdown-content .cd-secondary-dropdown > li {
+                width: 100%;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <!--dropdown 容器 -->
+        <div class="cd-dropdown-wrapper">
+            <!--dropdown 標題 -->
+            <a class="cd-dropdown-trigger dropdown-is-active" href="#">Dropdown</a>
+            <nav class="cd-dropdown dropdown-is-active">
+                <h2>Title</h2>
+                <a href="#0" class="cd-close">Close</a>
+                <!--dropdown 內容 -->
+
+                <ul class="cd-dropdown-content">
+
+                    <ul class="cd-secondary-dropdown fade-out">
+                        <li class="go-back"><a href="#0">Menu</a></li>
+                        <li class="see-all"><a href="#">All Clothing</a></li>
+
+
+
+                        <li class="has-children">
+                            <a href="#">Tops</a>
+                            <ul class="is-hidden">
+                                <li class="go-back"><a href="#0">Clothing</a></li>
+                                <li class="see-all"><a href="#">All Tops</a></li>
+
+                                <li class="is-hidden"> <a href="#">Coats</a></li>
+                                <li class="is-hidden"><a href="#">Polo Shirts</a></li>
+
+                                <li class="has-children">
+                                    <a href="#0">T-Shirts</a>
+                                    <ul class="is-hidden">
+                                        <li class="go-back"><a href="#0">Tops</a></li>
+                                        <li class="see-all"><a href="#">All T-shirts</a></li>
+                                        <li><a href="#">Plain</a></li>
+                                        <li><a href="#">Print</a></li>
+                                        <li><a href="#">Striped</a></li>
+                                        <li><a href="#">Long sleeved</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Vests</a></li>
+                            </ul>
+                        </li>
+                    </ul> <!-- .cd-secondary-dropdown -->
+
+
+
+
+
+                </ul> <!-- .cd-dropdown-content -->
+            </nav> <!-- .cd-dropdown -->
+        </div> <!-- .cd-dropdown-wrapper -->
+    </header>
+
+    <main class="cd-main-content">
+
+        your content here
+        <!-- your content here -->
+    </main>
+
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/jquery.menu-aim.js"></script> <!-- menu aim -->
+    <script src="Scripts/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

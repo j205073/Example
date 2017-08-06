@@ -1,0 +1,349 @@
+﻿@using TrainTestStationName.Models
+@model LanModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .etabs {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tab {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        background: #eee;
+        border: solid 1px #999;
+        border-bottom: none;
+        -moz-border-radius: 4px 4px 0 0;
+        -webkit-border-radius: 4px 4px 0 0;
+    }
+
+        .tab a {
+            font-size: 14px;
+            line-height: 2em;
+            display: block;
+            padding: 0 10px;
+            outline: none;
+        }
+
+            .tab a:hover {
+                text-decoration: underline;
+            }
+
+        .tab.active {
+            background: #fff;
+            padding-top: 6px;
+            position: relative;
+            top: 1px;
+            border-color: #666;
+        }
+
+        .tab a.active {
+            font-weight: bold;
+        }
+
+    .tab-container .panel-container {
+        background: #fff;
+        border: solid #666 1px;
+        padding: 10px;
+        -moz-border-radius: 0 4px 4px 4px;
+        -webkit-border-radius: 0 4px 4px 4px;
+    }
+
+    #startStationNameDiv {
+    padding: 0px;
+    margin-top: 6px;
+    width: 73%;
+    }
+
+    .station-group-ul {
+        list-style-type: none;
+        margin: 0;
+        position: static;
+        margin-bottom: 2px;
+    }
+
+        .station-group-ul li {
+            display: inline-block;
+            margin: 5px;
+        }
+</style>
+
+<h2>Index</h2>
+
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<link href="~/Content/easy-autocomplete.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.easy-autocomplete.js"></script>
+<script src="~/Scripts/jquery.easytabs.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/select2.full.min.js"></script>
+<link href="~/Content/select2.min.css" rel="stylesheet" />
+<link href="~/Content/easy-autocomplete.themes.css" rel="stylesheet" />
+<div class="row">
+
+    <div id="beginDiv" class="col-md-6">
+        <span class="label label-info">出發站</span>
+        <input id="beginStation" type="text" name="name" value=" " />
+
+        <div id="startStationNameDiv" style="display: none;">
+
+            <div id="tab-container" class="tab-container">
+                <ul class='etabs'>
+                    <li class='tab'><a href="#tabs-hot">熱門</a></li>
+                    <li class='tab'><a href="#tabs-g1">ABCD</a></li>
+                    <li class='tab'><a href="#tabs-g2">EFGH</a></li>
+                    <li class='tab'><a href="#tabs-g3">IJKL</a></li>
+                    <li class='tab'><a href="#tabs-g4">MNOP</a></li>
+                    <li class='tab'><a href="#tabs-g5">QRST</a></li>
+                    <li class='tab'><a href="#tabs-g6">UVWX</a></li>
+                    <li class='tab'><a href="#tabs-g7">YZ</a></li>
+                </ul>
+                <div class="panel-container" style="">
+
+                    <div id="tabs-hot">
+                        <ul class="station-group-ul">
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        </ul>
+                    </div>
+
+                    <div id="tabs-g1">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g2">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g3">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g4">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g5">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g6">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+
+                    <div id="tabs-g7">
+                        <ul class="station-group-ul"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="endDiv" class="col-md-6">
+        <span class="label label-primary">到達站</span>
+        @*<select id="endStation" name="EndStation" class="form-control"></select>*@
+        <input id="endStation" type="text" name="name" value=" " />
+    </div>
+</div>
+
+@*<div>
+    <div id="stationNameDiv">
+
+        <div id="tab-container" class="tab-container">
+            <ul class='etabs'>
+                <li class='tab'><a href="#tabs-hot">熱門</a></li>
+                <li class='tab'><a href="#tabs-g1">ABCD</a></li>
+                <li class='tab'><a href="#tabs-g2">EFGH</a></li>
+                <li class='tab'><a href="#tabs-g3">IJKL</a></li>
+                <li class='tab'><a href="#tabs-g4">MNOP</a></li>
+                <li class='tab'><a href="#tabs-g5">QRST</a></li>
+                <li class='tab'><a href="#tabs-g6">UVWX</a></li>
+                <li class='tab'><a href="#tabs-g7">YZ</a></li>
+            </ul>
+            <div class="panel-container" style="">
+
+                <div id="tabs-hot">
+                    <ul class="station-group-ul">
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                        <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                    </ul>
+                </div>
+
+                <div id="tabs-g1">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g2">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g3">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g4">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g5">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g6">
+                    <ul class="station-group-ul">
+                </div>
+
+                <div id="tabs-g7">
+                    <ul class="station-group-ul">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<script>
+    $(function () {
+
+        $('#tab-container').easytabs();
+
+        //取得出發站和到達站資料（1.6.4）
+        var stationName = '@Model.StationName';
+        var stationSplitAry = stationName.split("|");
+        var stationAry = GetStationData(stationSplitAry);
+
+        var autoComplateSource = [];
+        for (var i = 0; i < stationAry.length; i++) {
+            var source = { key: stationAry[i].Data.Group[0], value: stationAry[i].Data.Group[2], placeCD: stationAry[i].Data.Group[1] };
+            autoComplateSource.push(source);
+        }
+
+        var options = {
+            data: autoComplateSource,
+            placeholder: "請輸入站別名稱",
+            getValue: "key",
+            template: {
+                type: "description",
+                fields: { description: "value" },
+            },
+               list: {match: {enabled: true},
+                sort: {enabled: true},
+                showAnimation: {type: "fade"},
+                onSelectItemEvent: function () {
+                    var value = $("#beginStation").getSelectedItemData().placeCD;
+                }
+            },
+            theme: "plate-dark"
+        };
+        $("#beginStation").easyAutocomplete(options);
+
+        $("#beginStation").click(function () {
+            $('#startStationNameDiv').fadeToggle(1000);
+        });
+        
+    })
+
+    //取得站別資料
+    function GetStationData(stationSplitAry) {
+        var regExp = /^([\u4e00-\u9fa5])+$/;
+        var nStationAry = [];
+        var groundPlaceData = [];
+
+        for (var i = 0; i < stationSplitAry.length; i++) {
+            if (regExp.test(stationSplitAry[i])) {
+                for (var j = i; j < i + 4; j++) {
+                    groundPlaceData.push(stationSplitAry[j]);
+                }
+                nStationAry.push(
+                    {
+                        PlaceCD: groundPlaceData[1],
+                        Group: groundPlaceData
+                    });
+                groundPlaceData = [];
+            }
+        }
+        var wordAry = [];
+        var nWord = '';
+        for (var i = 0; i < nStationAry.length; i++) {
+            var getFirstWord = nStationAry[i].PlaceCD[0];
+            nWord = getFirstWord;
+            var nextWord = (i > 0) ? nStationAry[i - 1].PlaceCD[0] : '';
+            if (getFirstWord != nextWord) {
+                nWord = nextWord;
+            }
+            if (nWord != '') {
+                if (wordAry.indexOf(nWord) == -1) {
+                    wordAry.push(nWord);
+                }
+            }
+        }
+
+        var sortAry = wordAry.sort();
+        var groupAry = [];
+        for (var i = 0; i < sortAry.length; i++) {
+            for (var j = 0; j < nStationAry.length; j++) {
+                if (sortAry[i] == nStationAry[j].PlaceCD[0]) {
+                    groupAry.push({ MpaaingID: sortAry[i], Data: nStationAry[j] });
+                }
+            }
+        }
+        return groupAry;
+    }
+
+    //將站別排序後細節於下拉選單
+    //function selectStationDataBase(stationAry) {
+    //    var resuiltAry = [];
+    //    for (var i = 0; i < stationAry.length; i++) {
+    //        //var $li = $('<option>' + stationAry[i].Data.PlaceCD + '--' + stationAry[i].Data.Ground[0] + '</option>');
+    //        var $li = $('<option>' + stationAry[i].Data.Group[0] + '--' + stationAry[i].Data.Group[2] + '</option>');
+    //        $li.attr('id', stationAry[i].Data.PlaceCD);
+    //        resuiltAry.push($li);
+    //    }
+    //    return resuiltAry;
+    //}
+</script>

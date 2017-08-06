@@ -15,7 +15,7 @@ namespace ChsChtTranslate
         /// </summary>
         /// <param name="word"></param>
         /// <returns></returns>
-        public bool IsGBCode(string word)
+        private bool IsGBCode(string word)
         {
             byte[] bytes = Encoding.GetEncoding("GB2312").GetBytes(word);
             // if there is only one byte, it is ASCII code or other code
@@ -41,12 +41,12 @@ namespace ChsChtTranslate
 
         #region ---使用Kernel32 LCMapString轉換---
 
-        internal const int LOCALE_SYSTEM_DEFAULT = 0x0800;
-        internal const int LCMAP_SIMPLIFIED_CHINESE = 0x02000000;
-        internal const int LCMAP_TRADITIONAL_CHINESE = 0x04000000;
+        private const int LOCALE_SYSTEM_DEFAULT = 0x0800;
+        private const int LCMAP_SIMPLIFIED_CHINESE = 0x02000000;
+        private const int LCMAP_TRADITIONAL_CHINESE = 0x04000000;
 
         [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern int LCMapString(int Locale, int dwMapFlags, string lpSrcStr, int cchSrc, [Out] string lpDestStr, int cchDest);
+        private static extern int LCMapString(int Locale, int dwMapFlags, string lpSrcStr, int cchSrc, [Out] string lpDestStr, int cchDest);
 
         public string ToSimplified(string source)
         {

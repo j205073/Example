@@ -1,13 +1,6 @@
 ﻿using Reflection.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reflection
@@ -24,6 +17,7 @@ namespace Reflection
             Model1 model = new Model1() { ID = 1, Name = "jacky" };
             PrintData(model);
         }
+
         private void PrintData(dynamic objVo)
         {
             Type objType = objVo.GetType();
@@ -51,10 +45,9 @@ namespace Reflection
                     Console.WriteLine("   Visibility:    {0}",
                                       GetVisibility(setAccessor));
                 }
-
             }
-
         }
+
         public static String GetVisibility(MethodInfo accessor)
         {
             if (accessor.IsPublic)

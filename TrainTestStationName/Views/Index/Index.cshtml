@@ -54,10 +54,41 @@
         width: 442px;
     }
 
-    #startStationNameDiv ,#endStationNameDiv{
+    #serachMainDiv {
+        padding: 30px;
+        background-color: #1270b8;
+    }
+
+    #serachSubDiv {
+        background-color: #0a385c;
+        /*height: 80%;*/
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    #searchBtnDiv {
+        text-align: center;
+    }
+
+        #searchBtnDiv > input[type=button] {
+            width: 250px;
+            height: 46px;
+            margin-top: 85px;
+        }
+
+    #beginStation, #endStation {
+        /*width:60%;*/
+    }
+
+    #startStationNameDiv, #endStationNameDiv {
+        z-index: 999;
+        position: absolute;
         padding: 0px;
         margin-top: 6px;
-        width: 73%;
+        width: 122%;
+        background-color: white;
+        padding-left: 4px;
+        border-radius: 5px;
     }
 
     .station-group-ul {
@@ -66,11 +97,14 @@
         position: static;
         margin-bottom: 2px;
     }
+    #eac-container-beginStation >ul , #eac-container-endStation > ul {
+        top: 5px;
+    }
 
-        .station-group-ul li {
-            display: inline-block;
-            margin: 5px;
-        }
+    .station-group-ul li {
+        display: inline-block;
+        margin: 5px;
+    }
 
     .group-span {
         position: relative;
@@ -78,6 +112,10 @@
         left: 15px;
         color: red;
         font-family: Verdana;
+    }
+
+    .group-sub-div {
+        margin-top: -17px;
     }
 </style>
 
@@ -92,411 +130,322 @@
 <script src="~/Scripts/select2.full.min.js"></script>
 <link href="~/Content/select2.min.css" rel="stylesheet" />
 <link href="~/Content/easy-autocomplete.themes.css" rel="stylesheet" />
-<div class="row">
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
 
-    <div id="beginDiv" class="col-md-6">
-        <span class="label label-info">出發站</span>
-        <input id="beginStation" type="text" name="name" value="" />
-        <div id="startStationNameDiv" style="display: none;">
-            <div id="tab-container" class="tab-container">
-                <ul class='etabs'>
-                    <li class='tab'><a href="#tabs-hot">熱門</a></li>
-                    <li class='tab'><a href="#tabs-g1">ABCD</a></li>
-                    <li class='tab'><a href="#tabs-g2">EFGH</a></li>
-                    <li class='tab'><a href="#tabs-g3">IJKL</a></li>
-                    <li class='tab'><a href="#tabs-g4">MNOP</a></li>
-                    <li class='tab'><a href="#tabs-g5">QRST</a></li>
-                    <li class='tab'><a href="#tabs-g6">UVWX</a></li>
-                    <li class='tab'><a href="#tabs-g7">YZ</a></li>
-                </ul>
-                <div class="panel-container" style="">
+<div id="serachMainDiv" class="row">
+    <div id="serachSubDiv" class="col-md-7">
+        <div id="beginDiv" class="col-md-6">
+            <span class="label label-info">出發站</span>
+            <input id="beginStation" type="text" name="name" value="" />
+            <div id="startStationNameDiv" style="display: none;">
+                <div id="tab-container" class="tab-container">
+                    <ul class='etabs'>
+                        <li class='tab'><a href="#tabs-hot">熱門</a></li>
+                        <li class='tab'><a href="#tabs-g1">ABCD</a></li>
+                        <li class='tab'><a href="#tabs-g2">EFGH</a></li>
+                        <li class='tab'><a href="#tabs-g3">IJKL</a></li>
+                        <li class='tab'><a href="#tabs-g4">MNOP</a></li>
+                        <li class='tab'><a href="#tabs-g5">QRST</a></li>
+                        <li class='tab'><a href="#tabs-g6">UVWX</a></li>
+                        <li class='tab'><a href="#tabs-g7">YZ</a></li>
+                    </ul>
+                    <div id="start-container" class="panel-container" style="">
 
-                    <div id="tabs-hot">
-                        <ul class="station-group-ul">
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                        </ul>
+                        <div id="tabs-hot">
+                            <ul class="station-group-ul">
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div id="endDiv" class="col-md-6">
+            <span class="label label-info">抵達站</span>
+            <input id="endStation" type="text" name="name" value="" />
+            <div id="endStationNameDiv" style="display: none;">
+                <div id="tab-container" class="tab-container">
+                    <ul class='etabs'>
+                        <li class='tab'><a href="#tabs-hot">熱門</a></li>
+                        <li class='tab'><a href="#tabs-g1">ABCD</a></li>
+                        <li class='tab'><a href="#tabs-g2">EFGH</a></li>
+                        <li class='tab'><a href="#tabs-g3">IJKL</a></li>
+                        <li class='tab'><a href="#tabs-g4">MNOP</a></li>
+                        <li class='tab'><a href="#tabs-g5">QRST</a></li>
+                        <li class='tab'><a href="#tabs-g6">UVWX</a></li>
+                        <li class='tab'><a href="#tabs-g7">YZ</a></li>
+                    </ul>
+                    <div id="end-container" class="panel-container" style="">
 
-    <div id="endDiv" class="col-md-6">
-        <span class="label label-info">抵達站</span>
-        <input id="endStation" type="text" name="name" value="" />
-        <div id="endStationNameDiv" style="display: none;">
-            <div id="tab-container" class="tab-container">
-                <ul class='etabs'>
-                    <li class='tab'><a href="#tabs-hot">熱門</a></li>
-                    <li class='tab'><a href="#tabs-g1">ABCD</a></li>
-                    <li class='tab'><a href="#tabs-g2">EFGH</a></li>
-                    <li class='tab'><a href="#tabs-g3">IJKL</a></li>
-                    <li class='tab'><a href="#tabs-g4">MNOP</a></li>
-                    <li class='tab'><a href="#tabs-g5">QRST</a></li>
-                    <li class='tab'><a href="#tabs-g6">UVWX</a></li>
-                    <li class='tab'><a href="#tabs-g7">YZ</a></li>
-                </ul>
-                <div id="end-container" class="panel-container" style="">
-
-                    <div id="tabs-hot">
-                        <ul class="station-group-ul">
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                            <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
-                        </ul>
+                        <div id="tabs-hot">
+                            <ul class="station-group-ul">
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                                <li><input type="button" name="name" class="btn btn-xs " value="熱門" /></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="searchBtnDiv"><input type="button" class="btn btn-lg btn-success" name="name" value="搜尋" /></div>
     </div>
+    <div id="datepicker" class="col-md-5"></div>
+</div>
 
-
-    </div>
-    
-    <script>
-        $(function () {
-            //取得出發站和到達站資料（1.6.4）
-            var stationName = '@Model.StationName';
-            var stationSplitAry = stationName.split("|");
-            var stationAry = GetStationData(stationSplitAry);
-            //快速查詢
-            stationQuickSelect(stationAry);
-            //快速站別tab
-            $('.tab-container').easytabs();
-
-            //點擊空白處經停點隱藏事件
-            $(document).mouseup(function (e) {
-                var _con = $('#startStationNameDiv');
-                if (!_con.is(e.target) && _con.has(e.target).length === 0) {
-                    $('#startStationNameDiv').css('display', 'none');
-                }
+<script>
+    $(function () {
+        $("#datepicker").datepicker(
+            {
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                maxDate: '29', //以30天為限制，2017/05/16~2017/06/14 計算為例，值為29
+                numberOfMonths: 1,
+                showButtonPanel: true,
+                changeMonth: false,
             });
 
-            //自動完成輸入資料來源
-            var autoComplateSource = [];
-            for (var i = 0; i < stationAry.length; i++) {
-                var source = { key: stationAry[i].Data.Group[0], value: stationAry[i].Data.Group[2], placeCD: stationAry[i].Data.Group[1] };
-                autoComplateSource.push(source);
-            }
-
-            var options = {
-                data: autoComplateSource,
-                placeholder: "請輸入站別名稱",
-                getValue: "key",
-                template: {
-                    type: "description",
-                    fields: { description: "value" },
-                },
-                list: {
-                    match: { enabled: true },
-                    sort: { enabled: true },
-                    showAnimation: { type: "fade" },
-                    onSelectItemEvent: function () {
-                        var value = $("#beginStation").getSelectedItemData().placeCD;
-                    }
-                },
-                theme: "plate-dark"
-            };
-
-            $("#beginStation").easyAutocomplete(options);
-
-            $("#beginStation").click(function () {
-                if (!$('#eac-container-beginStation ul').is(':visible')) {
-                    $('#startStationNameDiv').fadeToggle(500);
-                }
-            });
-            $("#beginStation").on('keypress keyup keydown', function () {
-                $('#startStationNameDiv').hide();
-            });
-
-            $("#endStation").easyAutocomplete(options);
-
-            $("#endStation").click(function () {
-                if (!$('#eac-container-endStation ul').is(':visible')) {
-                    $('#endStationNameDiv').fadeToggle(500);
-                }
-            });
-            $("#endStation").on('keypress keyup keydown', function () {
-                $('#endStationNameDiv').hide();
-            });
-        })
-
+        //取得出發站和到達站資料（1.6.4）
+        var stationName = '@Model.StationName';
+        var stationSplitAry = stationName.split("|");
+        var stationAry = GetStationData(stationSplitAry);
         //車站快速選單
-        function stationQuickSelect(stationAry) {
-            var count = 20;
-            var iDGroup = [];
-            var dataGroup = [];
-            for (var i = 0; i < stationAry.length; i++) {
+        stationQuickSelect(stationAry, $('#start-container'));
+        stationQuickSelect(stationAry, $('#end-container'));
+        //快速站別tab
+        $('.tab-container').easytabs();
 
-                var findIndex = $.inArray(stationAry[i].MpaaingID, iDGroup);
+        //點擊空白處經停點隱藏事件
+        $(document).mouseup(function (e) {
+            var _con = $('#startStationNameDiv,#endStationNameDiv');
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                $('#startStationNameDiv,#endStationNameDiv').css('display', 'none');
+            }
+        });
 
-                if (findIndex < 0) {
-                    {
-                        var mappingID = stationAry[i].MpaaingID;
-                        iDGroup.push(mappingID);
-                        dataGroup.push({ ID: mappingID, data: [] });
-                        for (var j = i; j < stationAry.length; j++) {
-                            if (mappingID != stationAry[j].MpaaingID) {
-                                break;
-                            }
-                            else {
-                                dataGroup[dataGroup.length - 1].data.push(stationAry[j]);
-                            }
+        //自動完成輸入資料來源
+        var autoComplateSource = [];
+        for (var i = 0; i < stationAry.length; i++) {
+            var source = { key: stationAry[i].Data.Group[0], value: stationAry[i].Data.Group[2], placeCD: stationAry[i].Data.Group[1] };
+            autoComplateSource.push(source);
+        }
+
+        var optionsForBeginInput = {
+            data: autoComplateSource,
+            placeholder: "請輸入站別名稱",
+            getValue: "key",
+            template: {
+                type: "description",
+                fields: { description: "value" },
+            },
+            list: {
+                match: { enabled: true },
+                sort: { enabled: true },
+                showAnimation: { type: "fade" },
+                onSelectItemEvent: function () {
+                    var value = $("#beginStation").getSelectedItemData().placeCD;
+                    console.log(value);
+                },
+                maxNumberOfElements: 6,
+            },
+            theme: "round"
+            //theme: "plate-dark"
+        };
+        var optionsForEndInput = {
+            data: autoComplateSource,
+            placeholder: "請輸入站別名稱",
+            getValue: "key",
+            template: {
+                type: "description",
+                fields: { description: "value" },
+            },
+            list: {
+                match: { enabled: true },
+                sort: { enabled: true },
+                showAnimation: { type: "fade" },
+                onSelectItemEvent: function () {
+                    var value = $("#endStation").getSelectedItemData().placeCD;
+                    console.log(value);
+                },
+                maxNumberOfElements: 6,
+            },
+            theme: "round"
+            //theme: "plate-dark"
+        };
+
+        $('.btn-station').on('click', function () {
+            if ($(this).attr('input-type') == 'start') {
+                $('#beginStation').val($(this).val());
+                $('#startStationNameDiv').hide();
+            }
+            else {
+                $('#endStation').val($(this).val());
+                $('#endStationNameDiv').hide();
+            }
+        });
+
+        $("#beginStation").easyAutocomplete(optionsForBeginInput);
+
+        $("#beginStation").click(function () {
+            if (!$('#eac-container-beginStation ul').is(':visible')) {
+                $('#startStationNameDiv').fadeToggle(200);
+            }
+        });
+        $("#beginStation").on('keypress keyup keydown', function () {
+            $('#startStationNameDiv').hide();
+        });
+
+        $("#endStation").easyAutocomplete(optionsForEndInput);
+
+        $("#endStation").click(function () {
+            if (!$('#eac-container-endStation ul').is(':visible')) {
+                $('#endStationNameDiv').fadeToggle(200);
+            }
+        });
+        $("#endStation").on('keypress keyup keydown', function () {
+            $('#endStationNameDiv').hide();
+        });
+    })
+
+    //車站快速選單
+    function stationQuickSelect(stationAry, insertElem) {
+        var $elem;
+        var btnMark;
+        if ($(insertElem).attr('id') == 'start-container') {
+            $elem = $('#start-container');
+            btnMark = 'start';
+        }
+        else {
+            $elem = $('#end-container');
+            btnMark = 'end';
+        }
+        var count = 10;
+        var iDGroup = [];
+        var dataGroup = [];
+        for (var i = 0; i < stationAry.length; i++) {
+
+            var findIndex = $.inArray(stationAry[i].MpaaingID, iDGroup);
+
+            if (findIndex < 0) {
+                {
+                    var mappingID = stationAry[i].MpaaingID;
+                    iDGroup.push(mappingID);
+                    dataGroup.push({ ID: mappingID, data: [] });
+                    for (var j = i; j < stationAry.length; j++) {
+                        if (mappingID != stationAry[j].MpaaingID) {
+                            break;
+                        }
+                        else {
+                            dataGroup[dataGroup.length - 1].data.push(stationAry[j]);
                         }
                     }
                 }
             }
-
-            var index = 0;
-            for (var i = 0; i < dataGroup.length; i++) {
-                var mathCount = i % 4;
-                var mapID = dataGroup[i].ID;
-                var $div;
-                if (mathCount == 0) {
-                    index++;
-                    $div = $('<div />').attr('id', 'tabs-g' + index);
-                }
-                var elem =
-                '<div id="g' + index + '-' + mapID.toString().toLowerCase() + '">' +
-                '<span class="group-span">' + mapID + '</span>' +
-                '<ul class="station-group-ul"></ul>' +
-                '</div>';
-                $div.append(elem);
-                $('.panel-container').append($div);
-            }
-
-            //for (var i = 0; i < stationAry.length; i++) {
-            //    var mappingID = stationAry[i].MpaaingID;
-            //    var $li = $('<li />');
-            //    var $input = $('<input type="button">');
-            //    $input.addClass('btn btn-xs');
-            //    $input.val(stationAry[i].Data.Group[0]);
-            //    $li.append($input);
-            //    $li.css('width', '63px');
-            //    switch (mappingID) {
-            //        case 'A':
-            //            var liCount = $('#g1-a ul li').length;
-            //            if (liCount < count) {
-            //                $('#g1-a ul').append($li);
-            //            }
-            //            break;
-            //        case 'B':
-            //            var liCount = $('#g1-b ul li').length;
-            //            if (liCount < count) {
-            //                $('#g1-b ul').append($li);
-            //            }
-            //            break;
-            //        case 'C':
-            //            var liCount = $('#g1-c ul li').length;
-            //            if (liCount < count) {
-            //                $('#g1-c ul').append($li);
-            //            }
-            //            break;
-            //        case 'D':
-            //            var liCount = $('#g1-d ul li').length;
-            //            if (liCount < count) {
-            //                $('#g1-d ul').append($li);
-            //            }
-            //            break;
-            //        case 'E':
-            //            var liCount = $('#g2-e ul li').length;
-            //            if (liCount < count) {
-            //                $('#g2-e ul').append($li);
-            //            }
-            //            break;
-            //        case 'F':
-            //            var liCount = $('#g2-f ul li').length;
-            //            if (liCount < count) {
-            //                $('#g2-f ul').append($li);
-            //            }
-            //            break;
-            //        case 'G':
-            //            var liCount = $('#g2-g ul li').length;
-            //            if (liCount < count) {
-            //                $('#g2-g ul').append($li);
-            //            }
-            //            break;
-            //        case 'H':
-            //            var liCount = $('#g2-h ul li').length;
-            //            if (liCount < count) {
-            //                $('#g2-h ul').append($li);
-            //            }
-            //            break;
-            //        case 'I':
-            //            var liCount = $('#g3-i ul li').length;
-            //            if (liCount < count) {
-            //                $('#g3-i ul').append($li);
-            //            }
-            //            break;
-            //        case 'J':
-            //            var liCount = $('#g3-j ul li').length;
-            //            if (liCount < count) {
-            //                $('#g3-j ul').append($li);
-            //            }
-            //            break;
-            //        case 'K':
-            //            var liCount = $('#g3-k ul li').length;
-            //            if (liCount < count) {
-            //                $('#g3-k ul').append($li);
-            //            }
-            //            break;
-            //        case 'L':
-            //            var liCount = $('#g3-l ul li').length;
-            //            if (liCount < count) {
-            //                $('#g3-l ul').append($li);
-            //            }
-            //            break;
-            //        case 'M':
-            //            var liCount = $('#g4-m ul li').length;
-            //            if (liCount < count) {
-            //                $('#g4-m ul').append($li);
-            //            }
-            //            break;
-            //        case 'N':
-            //            var liCount = $('#g4-n ul li').length;
-            //            if (liCount < count) {
-            //                $('#g4-n ul').append($li);
-            //            }
-            //            break;
-            //        case 'O':
-            //            var liCount = $('#g4-o ul li').length;
-            //            if (liCount < count) {
-            //                $('#g4-o ul').append($li);
-            //            }
-            //            break;
-            //        case 'P':
-            //            var liCount = $('#g4-p ul li').length;
-            //            if (liCount < count) {
-            //                $('#g4-p ul').append($li);
-            //            }
-            //            break;
-            //        case 'Q':
-            //            var liCount = $('#g5-q ul li').length;
-            //            if (liCount < count) {
-            //                $('#g5-q ul').append($li);
-            //            }
-            //            break;
-            //        case 'R':
-            //            var liCount = $('#g5-r ul li').length;
-            //            if (liCount < count) {
-            //                $('#g5-r ul').append($li);
-            //            }
-            //            break;
-            //        case 'S':
-            //            var liCount = $('#g5-s ul li').length;
-            //            if (liCount < count) {
-            //                $('#g5-s ul').append($li);
-            //            }
-            //            break;
-            //        case 'T':
-            //            var liCount = $('#g5-t ul li').length;
-            //            if (liCount < count) {
-            //                $('#g5-t ul').append($li);
-            //            }
-            //            break;
-            //        case 'U':
-            //            var liCount = $('#g6-u ul li').length;
-            //            if (liCount < count) {
-            //                $('#g6-u ul').append($li);
-            //            }
-            //            break;
-            //        case 'V':
-            //            var liCount = $('#g6-v ul li').length;
-            //            if (liCount < count) {
-            //                $('#g6-v ul').append($li);
-            //            }
-            //            break;
-            //        case 'W':
-            //            var liCount = $('#g6-w ul li').length;
-            //            if (liCount < count) {
-            //                $('#g6-w ul').append($li);
-            //            }
-            //            break;
-            //        case 'X':
-            //            var liCount = $('#g6-x ul li').length;
-            //            if (liCount < count) {
-            //                $('#g6-x ul').append($li);
-            //            }
-            //            break;
-            //        case 'Y':
-            //            var liCount = $('#g7-y ul li').length;
-            //            if (liCount < count) {
-            //                $('#g7-y ul').append($li);
-            //            }
-            //            break;
-            //        case 'Z':
-            //            var liCount = $('#g7-z ul li').length;
-            //            if (liCount < count) {
-            //                $('#g7-z ul').append($li);
-            //            }
-            //            break;
-            //        default:
-            //    }
-            //}
         }
 
-        //取得站別資料
-        function GetStationData(stationSplitAry) {
-            var regExp = /^([\u4e00-\u9fa5])+$/;
-            var nStationAry = [];
-            var groundPlaceData = [];
+        var index = 0;
+        for (var i = 0; i < dataGroup.length; i++) {
+            var dataMain = dataGroup[i];
+            var mathCount = i % 4;
+            var mapID = dataGroup[i].ID;
+            var $div;
+            if (mathCount == 0) {
+                index++;
+                $div = $('<div />').attr('id', 'tabs-g' + index);
+            }
+            var $ul = $('<ul />');
+            $ul.addClass('station-group-ul');
+            var $span = $('<span />');
+            $span.addClass('group-span').html(mapID);
+            var $subDiv = $('<div />');
+            $subDiv.attr('id', 'g' + index + '-' + mapID.toString().toLowerCase());
+            $subDiv.addClass('group-sub-div');
+            $span.appendTo($subDiv);
 
-            for (var i = 0; i < stationSplitAry.length; i++) {
-                if (regExp.test(stationSplitAry[i])) {
-                    for (var j = i; j < i + 4; j++) {
-                        groundPlaceData.push(stationSplitAry[j]);
-                    }
-                    nStationAry.push(
-                        {
-                            PlaceCD: groundPlaceData[1],
-                            Group: groundPlaceData
-                        });
-                    groundPlaceData = [];
+            for (var j = 0; j < dataMain.data.length; j++) {
+                if (j == count) {
+                    break;
                 }
+                var dataSub = dataMain.data[j];
+                var $li = $('<li />');
+                var $input = $('<input type="button">');
+                $input.addClass('btn btn-xs btn-station');
+                $input.attr('input-type', btnMark);
+                $input.val(dataSub.Data.Group[0]);
+                $li.append($input);
+                $li.css('width', '63px');
+                $li.appendTo($ul);
+                $ul.appendTo($subDiv);
             }
-            var wordAry = [];
-            var nWord = '';
-            for (var i = 0; i < nStationAry.length; i++) {
-                var getFirstWord = nStationAry[i].PlaceCD[0];
-                nWord = getFirstWord;
-                var nextWord = (i > 0) ? nStationAry[i - 1].PlaceCD[0] : '';
-                if (getFirstWord != nextWord) {
-                    nWord = nextWord;
-                }
-                if (nWord != '') {
-                    if (wordAry.indexOf(nWord) == -1) {
-                        wordAry.push(nWord);
-                    }
-                }
-            }
-
-            var sortAry = wordAry.sort();
-            var groupAry = [];
-            for (var i = 0; i < sortAry.length; i++) {
-                for (var j = 0; j < nStationAry.length; j++) {
-                    if (sortAry[i] == nStationAry[j].PlaceCD[0]) {
-                        groupAry.push({ MpaaingID: sortAry[i], Data: nStationAry[j] });
-                    }
-                }
-            }
-            return groupAry;
+            $subDiv.appendTo($div);
+            $(insertElem).append($div);
+            $elem.append($div);
         }
-    </script>
+    }
+
+    //取得站別資料
+    function GetStationData(stationSplitAry) {
+        var regExp = /^([\u4e00-\u9fa5])+$/;
+        var nStationAry = [];
+        var groundPlaceData = [];
+
+        for (var i = 0; i < stationSplitAry.length; i++) {
+            if (regExp.test(stationSplitAry[i])) {
+                for (var j = i; j < i + 4; j++) {
+                    groundPlaceData.push(stationSplitAry[j]);
+                }
+                nStationAry.push(
+                    {
+                        PlaceCD: groundPlaceData[1],
+                        Group: groundPlaceData
+                    });
+                groundPlaceData = [];
+            }
+        }
+        var wordAry = [];
+        var nWord = '';
+        for (var i = 0; i < nStationAry.length; i++) {
+            var getFirstWord = nStationAry[i].PlaceCD[0];
+            nWord = getFirstWord;
+            var nextWord = (i > 0) ? nStationAry[i - 1].PlaceCD[0] : '';
+            if (getFirstWord != nextWord) {
+                nWord = nextWord;
+            }
+            if (nWord != '') {
+                if (wordAry.indexOf(nWord) == -1) {
+                    wordAry.push(nWord);
+                }
+            }
+        }
+
+        var sortAry = wordAry.sort();
+        var groupAry = [];
+        for (var i = 0; i < sortAry.length; i++) {
+            for (var j = 0; j < nStationAry.length; j++) {
+                if (sortAry[i] == nStationAry[j].PlaceCD[0]) {
+                    groupAry.push({ MpaaingID: sortAry[i], Data: nStationAry[j] });
+                }
+            }
+        }
+        return groupAry;
+    }
+</script>
